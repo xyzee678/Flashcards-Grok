@@ -1,0 +1,22 @@
+{
+    "decks": [
+        {
+            "id": "default",
+            "name": "Default Deck",
+            "cards": [
+                {
+                    "id": "id-12345",
+                    "frontText": "What is the capital of France?",
+                    "backText": "Paris",
+                    "tags": ["geography", "capitals"],
+                    "frontImage": "",
+                    "backImage": "",
+                    "interval": 1,
+                    "ease": 2.5,
+                    "nextReview": "2025-06-30T12:00:00.000Z",
+                    "reviews": 0
+                }
+            ]
+        }
+    ]
+}
