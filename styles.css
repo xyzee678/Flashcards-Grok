@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav button {
+    margin: 0 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.view {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.hidden {
+    display: none;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+textarea, input[type="text"], select {
+    padding: 8px;
+    width: 100%;
+}
+input[type="file"] {
+    padding: 8px 0;
+}
+.flashcard, .flashcard-preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    background: #fff;
+    transition: transform 0.3s;
+}
+.dark-mode .flashcard, .dark-mode .flashcard-preview {
+    background: #333;
+    border-color: #555;
+}
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+.flashcard img, .flashcard-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    display: none;
+}
+.flashcard img[src], .flashcard-preview img[src] {
+    display: block;
+}
+#practiceControls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+#cardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+.card-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+}
+.dark-mode .card-item {
+    background: #333;
+    border-color: #555;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+.dark-mode .modal-content {
+    background: #333;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    nav button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}
