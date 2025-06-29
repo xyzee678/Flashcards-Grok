@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Master</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Flashcard Master</h1>
+        <nav>
+            <button id="homeBtn" aria-label="Go to Home">Home</button>
+            <button id="createBtn" aria-label="Create New Flashcard">Create</button>
+            <button id="practiceBtn" aria-label="Start Practice">Practice</button>
+            <button id="manageBtn" aria-label="Manage Decks">Manage</button>
+            <button id="settingsBtn" aria-label="Settings">Settings</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Home View -->
+        <section id="homeView" class="view">
+            <h2>Welcome to Flashcard Master</h2>
+            <p>Create, manage, and practice flashcards to enhance your learning!</p>
+            <div class="stats">
+                <p>Total Decks: <span id="totalDecks">0</span></p>
+                <p>Total Cards: <span id="totalCards">0</span></p>
+                <p>Cards Due Today: <span id="cardsDue">0</span></p>
+            </div>
+        </section>
+
+        <!-- Create View -->
+        <section id="createView" class="view hidden">
+            <h2>Create Flashcard</h2>
+            <form id="createForm">
+                <label for="deckSelect">Deck:</label>
+                <select id="deckSelect" aria-label="Select Deck"></select>
+                <button type="button" id="newDeckBtn" aria-label="Create New Deck">New Deck</button>
+                <label for="frontText">Front (Question):</label>
+                <textarea id="frontText" required aria-label="Front Text"></textarea>
+                <label for="frontImage">Front Image (Optional):</label>
+                <input type="file" id="frontImage" accept="image/jpeg,image/png,image/gif" aria-label="Front Image Upload">
+                <label for="backText">Back (Answer):</label>
+                <textarea id="backText" required aria-label="Back Text"></textarea>
+                <label for="backImage">Back Image (Optional):</label>
+                <input type="file" id="backImage" accept="image/jpeg,image/png,image/gif" aria-label="Back Image Upload">
+                <label for="tags">Tags (comma-separated):</label>
+                <input type="text" id="tags" aria-label="Tags">
+                <div class="preview">
+                    <h3>Preview</h3>
+                    <div class="flashcard-preview">
+                        <div class="front"><p id="previewFrontText"></p><img id="previewFrontImage" alt="Front Image Preview"></div>
+                        <div class="back"><p id="previewBackText"></p><img id="previewBackImage" alt="Back Image Preview"></div>
+                    </div>
+                </div>
+                <button type="submit" aria-label="Save Flashcard">Save</button>
+            </form>
+        </section>
+
+        <!-- Practice View -->
+        <section id="practiceView" class="view hidden">
+            <h2>Practice Mode</h2>
+            <select id="practiceDeck" aria-label="Select Practice Deck"></select>
+            <select id="practiceMode" aria-label="Select Practice Mode">
+                <option value="standard">Standard</option>
+                <option value="typing">Typing</option>
+            </select>
+            <button id="startPractice" aria-label="Start Practice Session">Start</button>
+            <div id="practiceArea" class="hidden">
+                <div class="flashcard">
+                    <div id="cardFront"><p id="cardFrontText"></p><img id="cardFrontImage" alt="Card Front Image"></div>
+                    <div id="cardBack" class="hidden"><p id="cardBackText"></p><img id="cardBackImage" alt="Card Back Image"></div>
+                </div>
+                <div id="practiceControls">
+                    <button id="flipCard" aria-label="Flip Card">Flip</button>
+                    <div id="ratingButtons" class="hidden">
+                        <button data-rating="again" aria-label="Rate Again">Again</button>
+                        <button data-rating="hard" aria-label="Rate Hard">Hard</button>
+                        <button data-rating="good" aria-label="Rate Good">Good</button>
+                        <button data-rating="easy" aria-label="Rate Easy">Easy</button>
+                    </div>
+                    <div id="typingArea" class="hidden">
+                        <textarea id="typingInput" aria-label="Type Your Answer"></textarea>
+                        <button id="submitAnswer" aria-label="Submit Answer">Submit</button>
+                    </div>
+                </div>
+                <p>Progress: <span id="practiceProgress">0/0</span></p>
+            </div>
+        </section>
+
+        <!-- Manage View -->
+        <section id="manageView" class="view hidden">
+            <h2>Manage Decks</h2>
+            <input type="text" id="searchCards" placeholder="Search cards..." aria-label="Search Cards">
+            <select id="manageDeck" aria-label="Select Deck to Manage"></select>
+            <div id="cardList"></div>
+        </section>
+
+        <!-- Settings View -->
+        <section id="settingsView" class="view hidden">
+            <h2>Settings</h2>
+            <button id="exportBtn" aria-label="Export Data">Export Data</button>
+            <input type="file" id="importFile" accept=".json" aria-label="Import Data">
+            <button id="importBtn" aria-label="Import Data">Import</button>
+            <label><input type="checkbox" id="darkMode" aria-label="Toggle Dark Mode"> Dark Mode</label>
+        </section>
+    </main>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
